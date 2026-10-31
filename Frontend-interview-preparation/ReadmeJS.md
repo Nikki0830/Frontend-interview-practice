@@ -1,3 +1,6 @@
+=====================================================
+PHASE 1
+=====================================================
 1. What is Javascript?
 
 Javascript is a programming language used to create websites interactive and dynamic like HTML provides structure of a webpage, CSS makes it look attractive, and javascript adds functionality.
@@ -409,3 +412,126 @@ Here, we're using three modern JavaScript concepts:
 - Template literals to create a string.
 - Spread syntax to create a new array without modifying the original.
 These concepts are especially useful when working with React components, API responses, and state updates.
+
+
+DAY 1 INTERVIEW PRACTICE
+======================================
+1. What is JavaScript?
+Interview answer:
+
+“JavaScript is a programming language used to make websites interactive and dynamic. HTML provides the structure, CSS handles the styling, and JavaScript adds functionality, such as button clicks, form validation, and fetching data from APIs.”
+
+Example: When we click an Add to Cart button, JavaScript can update the cart without reloading the entire page.
+2. Is JavaScript interpreted or compiled?
+Interview answer:
+
+“JavaScript is commonly described as an interpreted language, but modern JavaScript engines use both interpretation and Just-In-Time compilation to execute and optimise code.”
+
+For example, Chrome's V8 engine uses interpretation and JIT compilation techniques to execute JavaScript efficiently.
+
+Remember: Saying “JavaScript is only interpreted” is an oversimplification.
+3. What is ECMAScript?
+Interview answer:
+
+“ECMAScript is the standard specification that defines the core features and behaviour of JavaScript. JavaScript implementations follow this standard. ES6, also called ES2015, introduced features such as let, const, arrow functions, and promises.”
+4. What is a JavaScript engine?
+Interview answer:
+
+“A JavaScript engine is a program that processes and executes JavaScript code. It parses the code and uses execution and optimisation techniques to run it.”
+
+Examples:
+- Chrome — V8
+- Firefox — SpiderMonkey
+- Safari — JavaScriptCore
+5. What is the difference between JavaScript and Node.js?
+Interview answer:
+
+“JavaScript is a programming language, whereas Node.js is a runtime environment that allows JavaScript to run outside the browser. In browsers, JavaScript can interact with the DOM. In Node.js, JavaScript can work with files, servers, and other system resources through Node.js APIs.”
+
+Example:
+console.log("Hello World");
+
+
+This can run in both a browser's developer console and Node.js.
+
+However, document.getElementById() is a browser API and is not available by default in Node.js.
+6. What is the difference between var, let, and const?
+Interview answer:
+
+“var, let, and const are used to declare variables in JavaScript. var is function-scoped, while let and const are block-scoped. var allows redeclaration in the same scope, but let and const do not. Both var and let allow reassignment, whereas const does not allow reassignment of its binding. In modern JavaScript, I generally use const by default and let when reassignment is required.”
+
+Example:
+var name = "Nikita";
+var name = "Rahul"; // Allowed
+
+let salary = 35000;
+salary = 40000;     // Allowed
+
+const country = "India";
+// country = "Germany"; // TypeError
+
+
+7. What is block scope?
+Interview answer:
+
+“Block scope means a variable is accessible only inside the block in which it is declared. Variables declared with let and const are block-scoped.”
+
+Example:
+if (true) {
+  let age = 25;
+  const city = "Bangalore";
+}
+
+console.log(age);  // ReferenceError
+console.log(city); // ReferenceError
+
+
+Both variables are accessible only inside the if block.
+8. What is hoisting?
+Interview answer:
+
+“Hoisting describes how JavaScript handles declarations during execution-context setup before executing the code. var variables are initialised to undefined, while let and const remain uninitialised until their declarations execute. Accessing let or const before that point causes a ReferenceError because they are in the Temporal Dead Zone.”
+
+Example:
+console.log(a); // undefined
+var a = 10;
+
+console.log(b); // ReferenceError
+let b = 20;
+
+
+9. Can we modify an object declared using const?
+Interview answer:
+
+“Yes. const prevents reassignment of the variable binding, but it doesn't make the object itself immutable. We can modify its properties, but we cannot assign a completely different object to the same variable.”
+
+Example:
+const user = {
+  name: "Nikita"
+};
+
+user.name = "Rahul"; // Allowed
+
+console.log(user.name); // Rahul
+
+
+But this fails:
+user = { name: "Amit" }; // TypeError
+
+
+10. What is the difference between Git and GitHub?
+Interview answer:
+
+“Git is a version control system that tracks code changes and allows us to manage different versions of a project. GitHub is a cloud-based platform that hosts Git repositories and provides collaboration features such as pull requests, code reviews, and issue tracking.”
+
+Example:
+- Git: git add, git commit, git branch
+- GitHub: Remote repositories, pull requests, team collaboration and GitHub Actions.
+
+
+
+
+
+=====================================================
+PHASE 1
+=====================================================

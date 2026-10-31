@@ -5,17 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src = "script.js" defer></script>
 </head>
 
 <body>
     <h1>Shopping cart</h1>
     <h2 id="msg">hello!</h2>
+    <h1 id = "sda">Script, defer, async</h1>
 
     <button id="addToCart">Add to cart</button>
     <button id="btn">Click Me</button>
 
+    <button onclick="alert('Hello')">Click Me</button>
+    <!-- Now:
+- Double quotes belong to the HTML attribute.
+- Single quotes belong to the JavaScript string. -->
+
+    <!-- <button onclick="alert("Hello")">Click Me</button> -->
+
+    <!-- //The problem is:
+- The first " starts the HTML attribute.
+- The second " before Hello accidentally ends the attribute.
+- The remaining code becomes invalid HTML. -->
+    <!-- 
+3. Another valid way
+You can also reverse the quotes:
+<button onclick='alert("Hello")'>Click Me</button> -->
+
+<button id = "sdabtn">Sda</button>
+
     <p id="message"></p>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script>
+
+    <script>
+        console.log("Javascript is runnning")
+    </script> -->
 </body>
 
 </html>

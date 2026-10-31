@@ -1,6 +1,8 @@
 // const button = document.getElementById("addToCart")
 // const btn = document.getElementById("btn")
 // const msg = document.getElementById("msg")
+// const sda = document.getElementById("sda")
+// const sdabtn = document.getElementById("sdabtn")
 
 // const name = "Nikita"
 // console.log(`Hello ${name}`)
@@ -11,6 +13,10 @@
 
 // btn.addEventListener("click", function () {
 //     msg.textContent = "Welcome!"
+// })
+
+// sdabtn.addEventListener("click", function () {
+//     sda.textContent = "Script, Defer, Async"
 // })
 
 // let age = 25
@@ -123,8 +129,10 @@
 // console.log(a)
 // var a = 20;//undefined
 
-console.log(a)
-let a = 10;//ReferenceError: Cannot access 'a' before initialization
+// console.log(a)
+// let a = 10;//ReferenceError: Cannot access 'a' before initialization
+
+
 
 
 

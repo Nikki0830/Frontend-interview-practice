@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0
+}
+
+.profile-card {
+    /* text-align: center; */
+    border: 1px solid grey;
+    border-radius: 4px;
+    background-color: white;
+    width: 250px;
+    max-width: 300px;
+    padding: 35px;
+}
+
+#updateButton {
+    background-color: blue;
+    color: white;
+}
+
+#updateButton:hover {
+    background-color: lightblue;
+    color: blue;
+}
