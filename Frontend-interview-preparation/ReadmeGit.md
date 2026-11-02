@@ -435,7 +435,35 @@ git commit -m "feat: add Employee-profile-card project, review notes, and CI/CD 
 git branch -M main
 git push -u origin main
 
+///////////////////////////////////////////////
+To https://github.com/Nikki0830/Frontend-interview-practice.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/Nikki0830/Frontend-interview-practice.git'   
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Why that error happened
 
+When you ran git pull origin main, Git fetched GitHub's commit (1f3f10f), but refused to check it out because files with the same names (ReadmeGit.md, ReadmeJS.md, etc.) already existed as untracked files on your computer.
+
+Because of that, when you ran git commit, Git created a brand-new, separate root commit (bf0857d) with no connection to GitHub's original commit (1f3f10f). When you tried to push, GitHub rejected it (non-fast-forward) because your local branch didn't have 1f3f10f in its history.
+
+I just fixed the commit history for you!
+
+I linked your local main branch directly on top of GitHub's origin/main (1f3f10f) using git reset --soft origin/main and re-committed all your new and modified files (including a .gitkeep inside DSA so the DSA folder shows up on GitHub too):
+
+text
+* c229d6d (HEAD -> main) feat: add Employee-profile-card project, review notes, and CI/CD notes
+* 1f3f10f (origin/main) Initial commit - frontend interview preparation
+All you need to do now:
+
+Run this single command in your VS Code terminal:
+
+powershell
+git push -u origin main
+
+Then refresh your GitHub page—all your folders (DSA, Frontend-projects, Javascript, and all your Readme*.md files) will appear!
 
 
 

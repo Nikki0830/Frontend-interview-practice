@@ -529,6 +529,349 @@ Example:
 - GitHub: Remote repositories, pull requests, team collaboration and GitHub Actions.
 
 
+1. What are data types in JavaScript?
+A data type tells JavaScript what kind of value a variable stores.
+
+Example:
+let name = "Nikita";
+let age = 25;
+let isLearning = true;
+
+
+- "Nikita" → String
+- 25 → Number
+- true → Boolean
+Interview answer:
+
+A data type defines the type of value stored in a variable. JavaScript supports primitive and non-primitive data types.
+2. JavaScript is dynamically typed
+JavaScript is a dynamically typed language. It means we don't need to explicitly specify the data type when declaring a variable. JavaScript determines the type at runtime.
+
+Example:
+let value = 100;
+
+console.log(typeof value); // number
+
+value = "Hello";
+
+console.log(typeof value); // string
+
+
+The same variable can hold values of different types.
+
+Interview question: What is dynamically typed language?
+
+A dynamically typed language determines the data type of a variable at runtime rather than requiring us to declare it explicitly.
+3. Types of data in JavaScript
+JavaScript has:
+- 7 primitive data types
+- 1 main non-primitive category: Object
+A. Primitive data types
+Primitive values represent individual values.
+Data type	Example	Description
+String	"Hello"	Stores text
+Number	100, 10.5	Stores numbers
+Boolean	true, false	Stores true or false
+Undefined	undefined	Value not assigned
+Null	null	Intentional absence of value
+BigInt	123456789n	Represents large integers
+Symbol	Symbol("id")	Creates unique identifiers
+
+Examples:
+let username = "Nikita";
+let salary = 35000;
+let isAvailable = true;
+let city;
+let selectedItem = null;
+let bigNumber = 123456789n;
+let uniqueId = Symbol("id");
+
+
+Important points:
+- JavaScript uses number for both integers and decimal numbers.
+- BigInt is used for integers beyond the safe integer range of Number.
+- Every call to Symbol() creates a unique symbol.
+B. Non-primitive data types
+The main non-primitive category is Object.
+
+It includes objects, arrays and functions.
+
+Object:
+const employee = {
+  name: "Nikita",
+  role: "Frontend Developer",
+  salary: 35000
+};
+
+
+Array:
+const skills = ["HTML", "CSS", "JavaScript"];
+
+
+Function:
+function greet() {
+  console.log("Hello Nikita");
+}
+
+
+Important: Arrays and functions are objects in JavaScript. Functions are special because they can be invoked.
+4. Primitive vs Non-primitive
+Primitive	Non-primitive
+Stores individual values	Can represent collections or structured data
+Immutable values	Objects can be mutated
+Copied by value	Variables hold references to objects
+Examples: String, Number, Boolean	Examples: Object, Array, Function
+
+Example:
+let a = 10;
+let b = a;
+
+b = 20;
+
+console.log(a); // 10
+console.log(b); // 20
+
+
+For primitive values, assigning one variable to another copies the value.
+
+We'll explore object references and copying in detail in Topic 3.
+5. typeof operator
+The typeof operator checks the data type of a value.
+console.log(typeof "Hello");    // string
+console.log(typeof 100);       // number
+console.log(typeof true);      // boolean
+console.log(typeof undefined); // undefined
+console.log(typeof 123n);      // bigint
+console.log(typeof Symbol());  // symbol
+
+
+Important interview outputs:
+console.log(typeof null); // object
+console.log(typeof []);   // object
+console.log(typeof {});   // object
+
+
+Why does typeof null return object?
+
+This is a historical JavaScript behaviour retained for backward compatibility. null is still a primitive data type.
+
+How do you check whether a value is an array?
+console.log(Array.isArray([])); // true
+
+
+Use Array.isArray() instead of typeof when checking arrays.
+6. Difference between null and undefined
+let firstName;
+
+console.log(firstName); // undefined
+
+let selectedUser = null;
+
+console.log(selectedUser); // null
+
+
+Undefined	Null
+A value has not been assigned	Intentional absence of a value
+Commonly occurs with uninitialised variables	Explicitly assigned by the developer
+typeof returns "undefined"	typeof returns "object"
+
+Interview answer:
+
+Undefined means a variable has not been assigned a value, whereas null represents an intentional absence of a value.
+7. Important JavaScript examples
+console.log(typeof 42);          // number
+console.log(typeof "42");        // string
+console.log(typeof false);       // boolean
+console.log(typeof undefined);   // undefined
+console.log(typeof null);        // object
+console.log(typeof []);          // object
+console.log(typeof {});          // object
+console.log(Array.isArray([]));  // true
+
+
+Remember that the value 42 is a number, but "42" is a string because it is enclosed in quotes.
+
+8. Common interview questions and answers
+Q1. How many primitive data types are there in JavaScript?
+
+There are seven primitive data types: String, Number, Boolean, Undefined, Null, BigInt and Symbol.
+
+Q2. Is JavaScript dynamically typed or statically typed?
+
+JavaScript is dynamically typed because variable types are determined at runtime.
+
+Q3. Is null a primitive or non-primitive data type?
+
+Null is a primitive data type, even though typeof null returns "object".
+
+Q4. What is the difference between typeof and Array.isArray()?
+
+typeof returns the general type of a value. Array.isArray() specifically checks whether a value is an array.
+
+Q5. Are arrays objects in JavaScript?
+
+Yes. Arrays are special types of objects that store ordered collections of values.
+
+Q6. Are functions objects in JavaScript?
+
+Yes. Functions are callable objects and can be assigned to variables, passed as arguments and returned from other functions.
+
+Q7. Can a JavaScript variable change its data type?
+
+Yes. JavaScript is dynamically typed, so a variable can hold values of different types during execution.
+
+Q8. What is Symbol used for?
+
+Symbol creates unique primitive values, often used as unique property keys in objects.
+
+Q9. What is BigInt?
+
+BigInt represents integers larger than the safe integer limit of the Number type.
+
+Q10. What is the difference between 10 and "10"?
+
+10 is a number, while "10" is a string.
+9. Output-based interview practice
+Try predicting the output before checking.
+console.log(typeof NaN);
+console.log(typeof Infinity);
+console.log(typeof []);
+console.log(typeof function(){});
+console.log(typeof null);
+console.log(typeof 10n);
+console.log(typeof Symbol("id"));
+
+
+Answers for revision
+Reveal answers
+10. Quick revision sheet
+Concept	Remember
+Primitive types	         7
+Non-primitive category	Object
+JavaScript typing	      Dynamically typed
+Type checking	          typeof
+Array checking	        Array.isArray()
+typeof null	            "object"
+typeof []	              "object"
+typeof NaN	            "number"
+typeof function(){}	    "function"
+Undefined	               Value not assigned
+Null	                   Intentionally empty
+
+JavaScript Notes: console.log() and New Lines
+1. What is console.log()?
+console.log() is used to display output in the browser console or runtime console.
+console.log("Hello");
+console.log("World");
+
+
+Output:
+Hello
+World
+
+
+Each console.log() automatically moves the output to the next line.
+2. What is \n?
+\n is a newline escape character in JavaScript.
+
+It moves the text following it to a new line within the same string.
+console.log("Hello\nWorld");
+
+
+Output:
+Hello
+World
+
+
+3. Difference between console.log() and console.log("\n")
+Example 1: Empty console.log()
+console.log("Hello");
+console.log();
+console.log("World");
+
+
+Output:
+Hello
+
+World
+
+
+console.log() without an argument prints a blank line.
+
+Example 2: console.log("\n")
+console.log("Hello");
+console.log("\n");
+console.log("World");
+
+
+Output:
+Hello
+
+
+World
+
+
+\n adds a newline character, and console.log() adds its own line ending.
+4. Using \n in one line
+console.log("Name: Nikita\nAge: 28\nRole: Frontend Developer");
+
+
+Output:
+Name: Nikita
+Age: 28
+Role: Frontend Developer
+
+
+5. Quick Revision
+Syntax	Purpose
+console.log("Hello")	Prints text and moves to the next line
+console.log()	Prints a blank line
+\n	Creates a new line inside a string
+console.log("\n")	Prints a newline plus the automatic line ending
+
+Interview takeaway: \n represents a newline character. It is useful for formatting multiline strings, while an empty console.log() is convenient for adding spacing between console outputs.
+
+Remember: One console.log() can display multiple lines using \n.
+
+1. What is process.stdout.write()?
+It is used in Node.js to print output directly to the standard output (terminal).
+process.stdout.write("Hello");
+process.stdout.write("World");
+
+
+Output:
+HelloWorld
+
+
+Notice that it does not automatically move to the next line.
+2. Understanding your code
+process.stdout.write(printInline[i] + " ");
+
+
+- process → Node.js global object.
+- stdout → Standard output stream (terminal).
+- write() → Writes data to the output stream.
+- printInline[i] → Accesses the current array element.
+- " " → Adds a space after the element.
+Example:
+const printInline = [10, 20, 30, 40];
+
+for (let i = 0; i < printInline.length; i++) {
+    process.stdout.write(printInline[i] + " ");
+}
+
+
+Output:
+10 20 30 40
+
+
+3. Difference between console.log() and process.stdout.write()
+console.log()	process.stdout.write()
+Available in browsers and Node.js	Node.js
+Automatically adds a newline	Does not automatically add a newline
+Used for logging output	Used for writing directly to the output stream
+
+Remember: Use console.log() for normal output and process.stdout.write() when you want inline terminal output without automatic line breaks.
 
 
 

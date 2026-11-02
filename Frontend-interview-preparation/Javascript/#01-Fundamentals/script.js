@@ -132,6 +132,19 @@
 // console.log(a)
 // let a = 10;//ReferenceError: Cannot access 'a' before initialization
 
+//DATA TYPES
+
+let name = "Nikita"
+console.log(typeof name)
+
+let age = 28;
+console.log(typeof 28)
+
+let isLearning = true
+console.log(typeof true)
+
+console.log(Array.isArray([]));
+console.log(typeof undefined);
 
 
 
