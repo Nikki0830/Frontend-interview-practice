@@ -147,7 +147,188 @@ console.log(Array.isArray([]));
 console.log(typeof undefined);
 
 
+//A. Primitive values – copied by value
+
+// let a = 10;
+// b = a;
+
+// b = 20;
+// console.log(a)//10
+// console.log(b)//20
+
+// B. Reference values – copying the reference
+
+const user1 = {
+    name: "Nikita",
+    age: 28
+}
+
+const user2 = user1;
+user2.name = "Reema"
+
+console.log(user1.name)//Reema
+console.log(user2.name)//Reema
+
+// 2. Arrays behave the same way
+
+const arr1 = [10, 20, 30]
+
+const arr2 = arr1;
+
+arr2.push(40)
 
 
+console.log(arr1)//[ 10, 20, 30, 40 ]
+console.log(arr2)//[ 10, 20, 30, 40 ]
 
+// 3. Mutation vs reassignment
+// Mutation: Changing the contents of an existing object or array.
+
+const user = {
+    name: "Nikita"
+}
+
+user.name = "Reema"//Mutation
+
+// Reassignment: Making a variable refer to a different value.
+
+// let user = {
+//     name:"Nikita"
+// }
+
+// user = {
+//     name:"Reema"
+// }// Reassignment
+
+//Important: const prevents reassignment of the 
+// variable binding, but it does not prevent object mutation.
+
+const user3 = { name: "Nikita" };
+user3.name = "Reema"//allowed
+//user = {} //Typeerror
+
+// 4. Shallow copy
+// A shallow copy creates a new outer object, but nested objects are still shared.
+
+const original = {
+    name: "Nikita",
+    address: {
+        city: "Bangalore"
+    }
+};
+
+const copied = { ...original }
+
+// console.log(copied)
+
+copied.name = "Reema"
+copied.address.city = "Pune"
+
+console.log(original.name);//Nikita
+console.log(original.address.city)//Pune
+
+// 5. Deep copy
+// A deep copy creates an independent copy of nested data too.
+//For supported data types, we can use structuredClone().
+
+const original2 = {
+    name: "Nikita",
+    address: {
+        city: "Bangalore"
+    }
+};
+
+const copied2 = structuredClone(original2)
+
+copied2.address.city = "Pune"
+
+console.log(original2.address.city)//Bangalore
+console.log(copied2.address.city)//Pune
+
+
+// 7. Practical coding exercise
+
+// Task 1 – Primitive copying => Copies the value
+
+let x = 100;
+let y = x;
+
+y = 200
+console.log(`${x} ${y}`)
+
+// Task 2 – Object reference => Copies the reference
+
+const employee1 = {
+    name: "Nikki",
+    role: "Frontend developer"
+}
+
+const employee2 = employee1;
+
+employee2.name = "Nikita"
+
+console.log(employee1.name);//Nikita
+console.log(employee2.name);//Nikita
+
+
+// Mutation	Changes existing data
+// Reassignment	Assigns a different value/reference
+// Shallow copy	New outer object, nested references shared
+// Deep copy	Independent nested data too
+
+// Task 3 – Shallow copy
+
+const product1 = {
+    name: "laptop",
+    details: {
+        brand: "Dell"
+    }
+}
+
+
+const product2 = { ...product1 }
+product2.name = "Phone"
+product2.details.brand = "HP"
+
+console.log(product1);//{ name: 'laptop', details: { brand: 'HP' } }
+console.log(product2);//{ name: 'Phone', details: { brand: 'HP' } }
+
+// Task 4 – Deep copy
+
+const product3 = {
+    name: "laptop",
+    details: {
+        brand: "Dell"
+    }
+}
+
+const product4 = structuredClone(product1)
+product4.name = "Phone"
+product4.details.brand = "HP"
+
+console.log(product3);
+console.log(product4);
+
+
+const a1 = { city: "Bangalore" };
+const b = a1;
+
+b.city = "Delhi";
+
+console.log(a1.city);
+
+
+// const a3 = 30;
+// const b1 = a3;
+
+// b1 = 40;
+
+// console.log(a1);//TypeError: Assignment to constant variable.
+
+let a3 = 30;
+let b1 = a3;
+
+b1 = 40;
+
+console.log(a3);//TypeError: Assignment to constant variable.
 
