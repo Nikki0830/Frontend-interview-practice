@@ -332,3 +332,195 @@ b1 = 40;
 
 console.log(a3);//TypeError: Assignment to constant variable.
 
+// 1. What is type conversion?
+//Type conversion means changing a value from one data type to another.
+
+let num = 100;
+
+let str = String(num)
+
+console.log(str)//100
+console.log(typeof str)//string
+
+let str2 = "10000000000000000000";
+
+let num3 = Number(str2)
+console.log(num3)//10000000000000000000
+console.log(typeof num3)//number
+
+// There are two types of conversion:
+// Type conversion
+
+// 1. Explicit conversion
+// Developer manually converts the data type.
+// Example: Number("100")
+
+// 2. Implicit conversion (coercion)
+// JavaScript automatically converts the data type.
+// Example: "5" + 2 produces "52".
+
+// 2. Explicit Type Conversion
+// Explicit means we intentionally convert a value using JavaScript functions.
+
+// A. String()
+// Converts a value into a string.
+
+console.log(String(100))//100->string
+console.log(String(true))//true->string
+console.log(String(null))//null->string
+console.log(String(undefined))//undefined->string
+
+//B. Number()
+// Converts a value into a number where possible.
+
+console.log(Number("100"))//100-> number
+console.log(Number("10.5"))//10.5 => number
+console.log(Number(true))//1
+console.log(Number(false))//0
+console.log(Number(null))//0
+console.log(Number("hello"))//NaN
+
+//imp
+console.log(Number(""))//0
+console.log(Number(" "))//0
+console.log(Number("123"))//123
+
+// C. Boolean()
+
+console.log(Boolean(1))//true
+console.log(Boolean(false))//false
+console.log(Boolean("hello"))//true
+console.log(Boolean(""))//false
+console.log(Boolean(" "))//true
+console.log(Boolean(null))//false
+console.log(Boolean([]))//true
+// console.log(Boolean{})//SyntaxError: missing ) after argument list
+console.log(Boolean({}))//true
+
+// Remember the seven falsy values:
+// - false
+// - 0
+// - -0
+// - 0n
+// - ""
+// - null
+// - undefined
+// - NaN
+// There are actually seven falsy values when 0 and -0 are 
+// counted together and 0n is included.
+
+// 3. Implicit Type Conversion (Coercion)
+//JavaScript automatically converts values during certain operations.
+
+// Example 1:
+
+console.log("5" + 2) //52 -> string
+
+// Why?
+// The + operator performs string concatenation when one operand is a string, 
+// so 2 is converted into "2".
+
+// Example 2:
+console.log(typeof "5" - 2)//NaN
+console.log("5" - 2)//3Yes! The output 3 is a number (Number data type), not a string.
+// The - operator requires numeric operands, so "5" is converted into 5.
+
+// Example 3:
+console.log("10" * 2)//20
+console.log("10" / 2)//5
+
+console.log(5 + true)//6
+console.log(5 + false)//5
+
+// Expression	Output	Reason
+// "5" + 2	"52"	String concatenation
+// "5" - 2	3	Numeric conversion
+// "5" * 2	10	Numeric conversion
+// "5" / 2	2.5	Numeric conversion
+// 5 + true	6	true becomes 1
+// 5 + false	5	false becomes 0
+
+// 4. parseInt() and parseFloat()
+// These functions extract numbers from the beginning of a string
+
+// parseInt(): Parses an integer.
+
+console.log(parseInt("100px"))//100
+console.log(parseInt("25.89"))//25
+
+// parseFloat(): Parses a floating-point number.
+
+console.log(parseFloat("25.89px"))//25.89
+console.log(parseFloat("10.5"))//10.5
+
+// Difference between Number() and parseInt()
+console.log(Number("100px"))//NaN
+console.log(parseInt("100px"))//100
+
+// Number() tries to convert the entire string into a number. 
+// parseInt() reads an integer from the beginning and stops when it 
+// encounters an invalid character.
+
+// 5. NaN and Number.isNaN()
+
+// NaN means Not-a-Number.
+// It represents an invalid numeric result.
+
+console.log(Number("hello"))//NaN
+console.log(10 / "hello")//NaN
+
+// To check whether a value is actually NaN:
+console.log(Number.isNaN("Hello"))//false
+console.log(Number.isNaN(NaN))//true
+console.log(Number.isNaN(100))//false
+
+// Important difference:
+
+console.log(typeof NaN)//number
+
+// NaN is technically a special numeric value in JavaScript.
+
+console.log(Number(""))//0
+console.log(Number(" "))//0
+
+// They are two different things:
+// console.log(Number(""));   // 0
+// console.log(Number(" "));  // 0
+
+
+// 1. "" — Empty string: Contains no characters.
+// 2. " " — Whitespace string: Contains one space character.
+// Why do both return 0?
+
+// When Number() converts a string, it ignores leading and trailing whitespace. If nothing remains after trimming, it converts the result to 0.
+
+// More examples:
+// Number("")       // 0
+// Number(" ")      // 0
+// Number("   ")    // 0
+// Number("  25  ") // 25
+// Number("hello")  // NaN
+
+
+// Interview note: An empty string has zero characters, whereas a whitespace string contains space characters. Both convert to 0 using Number().
+console.log(Boolean("false"))//true
+// A non-empty string is truthy, even when its text says false.
+console.log(parseInt("12.9px"))//12 parseInt reads the integer at the beginning and stops at the decimal point.
+
+// 7. Practical coding exercise
+
+//Convert "250" into a number and add 50.
+console.log(Number("250") + 50)//300
+
+// Convert true into a number.
+console.log(Number(true))//1
+
+//Convert 0 into a Boolean.
+console.log(Boolean(0))//false
+
+// Extract 45 from "45.89px" using parseInt().
+console.log(parseInt("45.89px"))//45
+
+// Check whether Number("hello") is NaN.
+console.log(Number.isNaN("Hello"))//false
+console.log(isNaN("Hello"))//true 

@@ -807,3 +807,619 @@ How many positions from the beginning is the number 40?
 Correct!40 is at index 3, meaning 3 positions after the starting position.
 
 The one sentence to remember: Offset = how many positions away from the starting point.
+
+# DSA Day 1 – Strings (JavaScript)
+
+**Goal:** Understand string fundamentals, practise string manipulation, solve beginner DSA problems and prepare for frontend coding interviews.
+
+---
+
+## 1. What is a String?
+
+A string is a primitive data type in JavaScript used to store and represent text.
+
+```js
+const name = "Nikita";
+const city = 'Bangalore';
+const message = `Hello World`;
+```
+
+Strings can be created using:
+- Single quotes `' '`
+- Double quotes `" "`
+- Template literals `` ` ` ``
+
+### Accessing characters
+
+Strings use zero-based indexing.
+
+```js
+const str = "hello";
+
+console.log(str[0]); // h
+console.log(str[1]); // e
+console.log(str.length); // 5
+```
+
+| Character | h | e | l | l | o |
+|---|---|---|---|---|---|
+| Index | 0 | 1 | 2 | 3 | 4 |
+
+**Important:** `length` gives the total number of characters, while the last index is `length - 1`.
+
+---
+
+## 2. Are Strings Mutable or Immutable?
+
+JavaScript strings are **immutable**.
+
+Immutable means we cannot directly modify an existing string.
+
+```js
+let str = "Hello";
+
+str[0] = "Y";
+
+console.log(str); // Hello
+```
+
+The original string remains unchanged.
+
+To create a modified string:
+
+```js
+let str = "Hello";
+
+str = "Y" + str.slice(1);
+
+console.log(str); // Yello
+```
+
+A new string is created and assigned to the variable.
+
+**Interview note:** Strings are immutable, whereas arrays are mutable.
+
+---
+
+## 3. String Traversal
+
+String traversal means visiting each character one by one using a loop.
+
+```js
+const name = "Nikita";
+
+for (let i = 0; i < name.length; i++) {
+    console.log(name[i]);
+}
+```
+
+Output:
+
+```text
+N
+i
+k
+i
+t
+a
+```
+
+### Print characters inline
+
+Using Node.js:
+
+```js
+const name = "Nikita";
+
+for (let i = 0; i < name.length; i++) {
+    process.stdout.write(name[i] + " ");
+}
+```
+
+Output:
+
+```text
+N i k i t a
+```
+
+`process.stdout.write()` is a Node.js API, not a browser API.
+
+In a browser, we can update an HTML element:
+
+```html
+<p id="output"></p>
+
+<script>
+const name = "Nikita";
+const output = document.getElementById("output");
+
+for (let i = 0; i < name.length; i++) {
+    output.textContent += name[i] + " ";
+}
+</script>
+```
+
+### Complexity
+
+- Time: O(n)
+- Auxiliary space: O(1) for the loop logic, excluding the output stored in the DOM.
+
+---
+
+## 4. Reverse a String
+
+Reversing a string means arranging its characters in the opposite order.
+
+Input: `"Hello"`
+
+Output: `"olleH"`
+
+### Approach 1: Without built-in methods
+
+```js
+const str = "Hello";
+let reversed = "";
+
+for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+}
+
+console.log(reversed); // olleH
+```
+
+Explanation:
+1. Start from the last character.
+2. Move backwards through the string.
+3. Append each character to the new string.
+
+**Complexity:**
+- Time: O(n²) worst case due to repeated immutable string concatenation.
+- Auxiliary space: O(n) for the new string.
+
+Note: Modern JavaScript engines may optimise concatenation, but O(n²) is a safe worst-case analysis.
+
+### Approach 2: Using built-in methods
+
+```js
+const str = "hello";
+
+const reversed = str.split("").reverse().join("");
+
+console.log(reversed); // olleh
+```
+
+Explanation:
+
+- `split("")` converts the string into an array of characters.
+- `reverse()` reverses the array in place.
+- `join("")` combines the characters into a string.
+
+**Complexity:**
+- Time: O(n)
+- Auxiliary space: O(n)
+
+### Approach 3: Two Pointers
+
+Two pointers are used to reverse an existing mutable array in place.
+
+```js
+const chars = ["h", "e", "l", "l", "o"];
+
+let left = 0;
+let right = chars.length - 1;
+
+while (left < right) {
+    let temp = chars[left];
+
+    chars[left] = chars[right];
+    chars[right] = temp;
+
+    left++;
+    right--;
+}
+
+console.log(chars);
+```
+
+Output:
+
+```js
+["o", "l", "l", "e", "h"]
+```
+
+Explanation:
+1. `left` starts at index 0.
+2. `right` starts at the last index.
+3. Swap both elements using `temp`.
+4. Move `left` forward and `right` backward.
+5. Stop when both pointers meet or cross.
+
+**Complexity:**
+- Time: O(n)
+- Auxiliary space: O(1) for reversal itself.
+
+### Important: String vs Array
+
+JavaScript strings are immutable, so we cannot directly swap characters inside an existing string.
+
+If we convert a string into a character array:
+- Conversion requires O(n) additional space.
+- Two-pointer reversal requires O(1) additional space.
+- Total auxiliary space remains O(n).
+
+If we need a separate reversed string, creating that output requires O(n) space.
+
+**Interview takeaway:** Two pointers optimise the reversal operation, but converting an immutable string into a mutable array still requires additional memory.
+
+---
+
+## 5. What is a Palindrome?
+
+A palindrome is a word, number or string that reads the same forward and backward.
+
+Examples:
+
+| Input | Result |
+|---|---|
+| madam | Palindrome |
+| level | Palindrome |
+| racecar | Palindrome |
+| hello | Not a palindrome |
+
+### Without built-in methods
+
+```js
+const str = "madam";
+let reversed = "";
+
+for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+}
+
+if (str === reversed) {
+    console.log("Palindrome");
+} else {
+    console.log("Not a palindrome");
+}
+```
+
+Output:
+
+```text
+Palindrome
+```
+
+**Complexity:**
+- Time: O(n²) worst case due to repeated string concatenation.
+- Auxiliary space: O(n).
+
+### Using built-in methods
+
+```js
+const str = "madam";
+
+const reversed = str.split("").reverse().join("");
+
+if (str === reversed) {
+    console.log("Palindrome");
+} else {
+    console.log("Not a palindrome");
+}
+```
+
+**Complexity:**
+- Time: O(n)
+- Auxiliary space: O(n)
+
+---
+
+## 6. Character Frequency Counting
+
+Character frequency counting means finding how many times each character appears in a string.
+
+Example:
+
+```js
+const str = "hello";
+```
+
+Expected output:
+
+```js
+{
+    h: 1,
+    e: 1,
+    l: 2,
+    o: 1
+}
+```
+
+### Approach 1: Using an Object
+
+```js
+const str = "hello";
+const frequency = {};
+
+for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    if (frequency[char]) {
+        frequency[char]++;
+    } else {
+        frequency[char] = 1;
+    }
+}
+
+console.log(frequency);
+```
+
+### Explanation
+
+**Step 1:**
+
+```js
+const frequency = {};
+```
+
+Create an empty object to store characters and their counts.
+
+**Step 2:**
+
+```js
+const char = str[i];
+```
+
+Extract the current character.
+
+**Step 3:**
+
+```js
+if (frequency[char]) {
+    frequency[char]++;
+}
+```
+
+If the character already exists, increase its count.
+
+**Step 4:**
+
+```js
+else {
+    frequency[char] = 1;
+}
+```
+
+If it is a new character, initialise its count to 1.
+
+### Dry Run: `"hello"`
+
+| Iteration | Character | Action | Frequency |
+|---|---|---|---|
+| 1 | h | New key | h: 1 |
+| 2 | e | New key | h: 1, e: 1 |
+| 3 | l | New key | h: 1, e: 1, l: 1 |
+| 4 | l | Increment | h: 1, e: 1, l: 2 |
+| 5 | o | New key | h: 1, e: 1, l: 2, o: 1 |
+
+**Complexity:**
+- Time: O(n) average.
+- Auxiliary space: O(k).
+
+Where:
+- n = total number of characters.
+- k = number of distinct characters.
+
+Distinct characters means unique characters counted only once.
+
+Example: `"banana"`
+- n = 6
+- k = 3 (b, a, n)
+
+### Approach 2: Using Map
+
+```js
+const str = "Nikki";
+
+const frequency = new Map();
+
+for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    if (frequency.has(char)) {
+        frequency.set(char, frequency.get(char) + 1);
+    } else {
+        frequency.set(char, 1);
+    }
+}
+
+console.log(frequency);
+```
+
+Output:
+
+```text
+Map(3) {
+  'N' => 1,
+  'i' => 2,
+  'k' => 2
+}
+```
+
+### Understanding Map methods
+
+| Method | Purpose |
+|---|---|
+| `has(key)` | Checks whether a key exists |
+| `get(key)` | Retrieves the value |
+| `set(key, value)` | Adds or updates a key-value pair |
+
+Why use `const char = str[i]`?
+
+It stores the current character in a temporary variable. We could directly use `str[i]`, but `char` makes the code cleaner and avoids repeating the expression.
+
+### Object vs Map
+
+| Object | Map |
+|---|---|
+| Stores key-value pairs | Stores key-value pairs |
+| Keys are strings or symbols | Keys can be any value |
+| Good for simple character counting | Useful for general-purpose frequency counting |
+| O(n) average time | O(n) average time |
+
+**Interview takeaway:** Both approaches have O(n) average time and O(k) auxiliary space. Switching to Map does not improve Big-O complexity.
+
+---
+
+## 7. Two Sum – Important LeetCode Problem
+
+**Note: Practise this properly during Day 2 – Arrays.**
+
+Two Sum is a popular coding interview problem.
+
+Problem: Given an array of numbers and a target value, find the indices of two numbers whose sum equals the target.
+
+Example:
+
+```js
+const nums = [2, 7, 11, 15];
+const target = 9;
+```
+
+Expected output:
+
+```js
+[0, 1]
+```
+
+Because:
+
+```js
+2 + 7 = 9
+```
+
+We will cover two approaches:
+
+1. Brute force using nested loops.
+2. Optimised solution using a Hash Map.
+
+### Brute-force complexity
+
+- Time: O(n²)
+- Auxiliary space: O(1), excluding the returned answer.
+
+The optimised Hash Map approach will be practised in Day 2.
+
+---
+
+## 8. Important Time and Space Complexity Revision
+
+| Operation / Approach | Time | Auxiliary Space |
+|---|---|---|
+| String traversal | O(n) | O(1) |
+| Inline printing | O(n) | O(1) algorithmic space |
+| Reverse with repeated concatenation | O(n²) worst case | O(n) |
+| `split().reverse().join()` | O(n) | O(n) |
+| Two-pointer array reversal | O(n) | O(1) |
+| Character frequency using Object | O(n) average | O(k) |
+| Character frequency using Map | O(n) average | O(k) |
+| Two Sum brute force | O(n²) | O(1), excluding output |
+
+### Important definitions
+
+**Time Complexity:** Measures how the running time grows as input size increases.
+
+**Space Complexity:** Measures how much additional memory an algorithm uses.
+
+**Auxiliary Space:** Extra memory used by the algorithm, excluding the original input.
+
+**O(1):** Constant additional space.
+
+**O(n):** Additional space grows with input size.
+
+**O(n²):** Work can grow proportionally to the square of input size.
+
+**O(k):** Additional space grows with the number of distinct characters.
+
+---
+
+## 9. String Interview Questions and Answers
+
+### Q1. What is a string in JavaScript?
+
+A string is a primitive data type used to store and represent text. It can contain letters, numbers, symbols and spaces.
+
+### Q2. Are strings mutable or immutable?
+
+Strings are immutable, which means we cannot directly change an existing string. Any modification creates a new string.
+
+### Q3. How do you reverse a string without built-in methods?
+
+We can use a for loop starting from the last index and concatenate each character into a new string.
+
+### Q4. What is a palindrome?
+
+A palindrome is a word or string that reads the same forward and backward, such as madam and level.
+
+### Q5. What is character frequency counting?
+
+It means counting how many times each unique character appears in a string. We can use an object or Map.
+
+### Q6. What is the Two Sum problem?
+
+Given an array and a target, find the indices of two elements whose sum equals the target.
+
+### Q7. What is the time complexity of checking every pair using nested loops?
+
+O(n²), because each element is compared with other elements using nested loops.
+
+---
+
+## 10. Day 1 Practice Checklist
+
+### Concepts
+- [ ] Understand strings and indexing.
+- [ ] Understand string immutability.
+- [ ] Practise string traversal.
+- [ ] Understand inline output in Node.js vs browser.
+- [ ] Understand reverse string.
+- [ ] Understand two-pointer reversal.
+- [ ] Understand palindrome checking.
+- [ ] Understand character frequency.
+- [ ] Practise Object and Map.
+- [ ] Understand O(n), O(n²), O(k), O(1).
+
+### Coding Practice
+- [ ] Print each character of a string.
+- [ ] Print characters inline.
+- [ ] Reverse a string without built-in methods.
+- [ ] Reverse a string using built-in methods.
+- [ ] Check whether a string is a palindrome.
+- [ ] Count character frequency using an object.
+- [ ] Count character frequency using Map.
+- [ ] Explain the time and space complexity of every solution.
+
+### Interview Preparation
+- [ ] Answer all 7 string interview questions aloud.
+- [ ] Explain your code line by line.
+- [ ] Explain the dry run.
+- [ ] Explain why you selected a particular approach.
+- [ ] Explain time and auxiliary space complexity.
+
+---
+
+## Day 1 Completion Goal
+
+By the end of Day 1, I should be able to:
+
+1. Traverse and manipulate strings.
+2. Reverse strings without depending on built-in methods.
+3. Check palindrome conditions.
+4. Count character frequencies using Object and Map.
+5. Explain two-pointer logic.
+6. Analyse time and space complexity.
+7. Explain my solutions confidently during interviews.
+
+**Next: Day 2 – Arrays**
+
+Focus on array fundamentals, traversal, searching, maximum/minimum, reversing arrays, two pointers, frequency counting and the important LeetCode Two Sum problem (brute force + Hash Map optimisation).
+

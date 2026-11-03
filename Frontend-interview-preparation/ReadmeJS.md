@@ -1645,7 +1645,217 @@ Remember this interview definition:
 
 One important detail: JavaScript doesn't require you to manage or see the actual memory address. Think of a reference as a link to the object, not the object itself.
 
+ 
+# JavaScript – Topic 4: Type Conversion
 
+**Study Time:** 11:15 PM – 12:00 AM  
+**Duration:** 45 minutes
+
+## 1. What is Type Conversion?
+
+Type conversion means changing a value from one data type to another.
+
+Example:
+
+```js
+let age = "25"; // String
+let result = Number(age); // Number
+
+console.log(result);        // 25
+console.log(typeof result); // "number"
+```
+
+JavaScript supports two types of conversion:
+
+1. Explicit Type Conversion
+2. Implicit Type Conversion (Type Coercion)
+
+---
+
+## 2. Explicit Type Conversion
+
+Explicit conversion happens when the developer manually converts a value using built-in functions.
+
+### A. String()
+
+Converts a value into a string.
+
+```js
+String(100);       // "100"
+String(true);      // "true"
+String(null);      // "null"
+String(undefined); // "undefined"
+String(25.5);      // "25.5"
+```
+
+### B. Number()
+
+Converts a value into a number.
+
+```js
+Number("100");  // 100
+Number("10.5"); // 10.5
+Number(true);   // 1
+Number(false);  // 0
+Number(null);   // 0
+
+Number("hello"); // NaN
+```
+
+Important examples:
+
+```js
+Number("");    // 0
+Number(" ");   // 0
+Number("   "); // 0
+Number("25");  // 25
+Number("25px");// NaN
+```
+
+**Important difference:**
+
+- `""` – Empty string: contains zero characters.
+- `" "` – Whitespace string: contains one space character.
+- Both return `0` because whitespace is removed before numeric conversion. If nothing remains, the result is zero.
+
+### C. Boolean()
+
+Converts a value into a Boolean (`true` or `false`).
+
+```js
+Boolean(1);       // true
+Boolean(0);       // false
+Boolean("hello"); // true
+Boolean("");      // false
+Boolean(null);    // false
+Boolean(undefined); // false
+Boolean([]);      // true
+Boolean({});      // true
+```
+
+**Important:** Non-empty strings, including `"false"` and `"0"`, are truthy.
+
+```js
+Boolean("false"); // true
+Boolean("0");     // true
+```
+
+### Falsy Values
+
+These values become `false` when converted to Boolean:
+
+```js
+false
+0
+-0
+0n
+""
+null
+undefined
+NaN
+```
+
+Most other values are truthy, including empty arrays `[]` and empty objects `{}`.
+
+---
+
+## 3. Implicit Type Conversion (Type Coercion)
+
+Implicit conversion happens automatically when JavaScript converts a value from one type to another during an operation.
+
+### Example 1: String concatenation
+
+```js
+console.log("5" + 2); // "52"
+```
+
+The `+` operator converts the number into a string and joins both values.
+
+### Example 2: Subtraction
+
+```js
+console.log("5" - 2); // 3
+```
+
+The `-` operator converts the string into a number before subtraction.
+
+### Example 3: Multiplication and Division
+
+```js
+console.log("10" * 2); // 20
+console.log("10" / 2); // 5
+```
+
+### Example 4: Boolean conversion during arithmetic
+
+```js
+console.log(5 + true);  // 6
+console.log(5 + false); // 5
+```
+
+JavaScript converts:
+
+- `true` into `1`
+- `false` into `0`
+
+**Interview note:** The `+` operator can perform both addition and string concatenation. Other arithmetic operators such as `-`, `*`, and `/` generally convert numeric strings into numbers.
+
+---
+
+## 4. parseInt() and parseFloat()
+
+Both functions extract a numeric value from the beginning of a string.
+
+### A. parseInt()
+
+Converts the beginning of a string into an integer.
+
+```js
+parseInt("100px");  // 100
+parseInt("25.89");  // 25
+parseInt("45.89px"); // 45
+parseInt("hello");  // NaN
+```
+
+### B. parseFloat()
+
+Converts the beginning of a string into a floating-point number (decimal number).
+
+```js
+parseFloat("25.89");    // 25.89
+parseFloat("45.89px");  // 45.89
+parseFloat("100px");    // 100
+parseFloat("hello");    // NaN
+```
+
+### Number() vs parseInt() vs parseFloat()
+
+| Function | Example | Output |
+|---|---|---:|
+| Number() | `Number("25.89")` | 25.89 |
+| parseInt() | `parseInt("25.89")` | 25 |
+| parseFloat() | `parseFloat("25.89")` | 25.89 |
+| Number() | `Number("100px")` | NaN |
+| parseInt() | `parseInt("100px")` | 100 |
+| parseFloat() | `parseFloat("100px")` | 100 |
+
+**Remember:**
+- `Number()` converts the entire trimmed string.
+- `parseInt()` extracts an integer from the beginning.
+- `parseFloat()` extracts a decimal number from the beginning.
+
+---
+
+## 5. What is NaN?
+
+NaN stands for **Not-a-Number**.
+
+It represents an invalid numeric result.
+
+```js
+console.log(Number("hello")); // NaN
+console.log(10 / "hello");    // NaN
+console.log
 =====================================================
 PHASE 1
 =====================================================

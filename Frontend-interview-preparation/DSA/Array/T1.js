@@ -72,6 +72,10 @@ console.log(`${sum} ${avg}`)
 
 //Reverse an array(basic approach)
 const revNum = [1, 2, 3, 4, 5];
+
+// for(let i = revNum.length-1; i >= 0; i--){
+//     console.log(revNum[i])
+// }
 let newRevNum = [];
 
 for (let i = revNum.length - 1; i >= 0; i--) {
