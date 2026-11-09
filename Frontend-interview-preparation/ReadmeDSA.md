@@ -1374,7 +1374,7 @@ O(n²), because each element is compared with other elements using nested loops.
 
 ---
 
-## 10. Day 1 Practice Checklist
+<!-- ## 10. Day 1 Practice Checklist
 
 ### Concepts
 - [ ] Understand strings and indexing.
@@ -1423,3 +1423,140 @@ By the end of Day 1, I should be able to:
 
 Focus on array fundamentals, traversal, searching, maximum/minimum, reversing arrays, two pointers, frequency counting and the important LeetCode Two Sum problem (brute force + Hash Map optimisation).
 
+Daily non-negotiable routine
+DSA and coding practice should continue alongside the topic of the day.
+Daily study allocation
+DSA + LeetCode
+2 hrs
+
+
+
+Main technology learning
+4–5 hrs
+
+
+
+Practical coding
+1–2 hrs
+
+
+
+Git/GitHub practice should be part of your coding sessions, not a separate long course.
+
+What you must complete in each phase
+November 1–2: JavaScript
+- Fundamentals, data types, operators and conditions.
+- Loops, functions, scope, hoisting and closures.
+- Arrays, objects and array methods.
+- DOM, events and event delegation.
+- ES6+, destructuring, spread/rest.
+- Callbacks, promises, async/await and fetch.
+- Event loop, execution context and common interview questions.
+- Practical coding and output-based questions.
+Deliverable: One small JavaScript project and a set of interview notes.
+November 3–4: HTML, CSS and UI frameworks
+- Semantic HTML, forms, accessibility and SEO basics.
+- CSS box model, positioning, Flexbox and Grid.
+- Responsive design, media queries and animations.
+- Tailwind CSS utilities and responsive classes.
+- Bootstrap grid, components and utilities.
+- MUI components, themes and styling.
+Deliverable: Build one responsive page using a framework and revise CSS concepts.
+November 7–10: React.js and Redux
+This is one of your most important phases.
+- Components, JSX and props.
+- State and events.
+- useState, useEffect, useRef.
+- Conditional rendering and lists.
+- Forms and controlled components.
+- API integration, loading and error handling.
+- React Router.
+- Context API.
+- Redux Toolkit, slices, store and dispatch.
+- Performance basics: memo, useMemo and useCallback.
+- Practical interview coding.
+Deliverable: Build a React application with API integration, routing and state management.
+November 11–12: TypeScript
+Since you're new to TypeScript, focus on:
+- Basic types and type inference.
+- Arrays, objects and functions.
+- Interfaces and type aliases.
+- Union and intersection types.
+- Optional properties.
+- Generics basics.
+- Typing React props, state and events.
+Deliverable: Convert a small React component into TypeScript.
+November 13–14: Next.js
+Focus on the fundamentals rather than advanced architecture.
+- What is Next.js and why use it?
+- App Router and folder structure.
+- Pages, layouts and navigation.
+- Server and Client Components.
+- SSR, SSG and CSR.
+- Data fetching basics.
+- Dynamic routes.
+- Loading and error pages.
+Deliverable: Build a small Next.js application with multiple routes.
+November 15–16: Figma and design systems
+- Frames, components and variants.
+- Auto Layout.
+- Typography, colours and spacing.
+- Variables and design tokens.
+- Responsive design concepts.
+- Basic design system structure.
+- Developer handoff and inspecting designs.
+Deliverable: One dashboard UI and a small design system.
+November 17: Final revision
+- HTML/CSS/JavaScript mock interview.
+- React and Redux mock interview.
+- TypeScript and Next.js fundamentals.
+- DSA revision and coding round.
+- Git/GitHub and CI/CD interview questions.
+- Project explanation and behavioural questions.
+
+Git, GitHub, CI/CD and design systems
+These should run alongside your other subjects.
+Topic	What you should know
+Git	init, status, add, commit, branch, merge, pull
+GitHub	repositories, push, pull requests, README
+CI/CD	What a pipeline is, CI vs CD, GitHub Actions basics
+Design systems	Tokens, components, variants, typography, colours and spacing
+
+Important: Push your practical work to GitHub every day. This gives you both coding practice and Git experience.
+My priority ranking for your interview
+Priority	Skills
+Very high	JavaScript, React, HTML, CSS
+Very high	DSA and practical coding
+High	Redux, Tailwind, Bootstrap, MUI
+Medium	TypeScript, Next.js
+Knowledge	GitHub, CI/CD, design systems, Figma -->
+
+1 November – Fundamentals – Part 2
+[ ] Operators and precedence
+[ ] Truthy and falsy values
+[ ] Conditions and switch
+[ ] Loops and iteration
+[ ] Functions and parameters
+[ ] Arrow functions
+[ ] Scope, hoisting and TDZ
+[ ] Execution context and call stack
+[ ] Strict mode and common errors
+
+
+<!-- 2 November – Core JavaScript – Part 3
+[ ] Arrays and array methods
+[ ] Objects and object methods
+[ ] Destructuring and spread/rest
+[ ] Strings and template literals
+[ ] Callbacks and higher-order functions
+[ ] Closures and lexical scope
+[ ] this, call, apply and bind
+[ ] Prototypes and inheritance
+[ ] DOM manipulation and events
+[ ] Event bubbling, capturing and delegation
+[ ] Promises and Promise methods
+[ ] Async/await and fetch/API
+[ ] Event loop, microtasks and macrotasks
+[ ] LocalStorage, sessionStorage and JSON
+[ ] ES modules and error handling
+ -->
